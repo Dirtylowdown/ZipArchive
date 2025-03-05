@@ -1,62 +1,115 @@
-/* mz_strm.c -- Stream interface
-   part of the minizip-ng project
-
-   Copyright (C) Nathan Moinvaziri
-     https://github.com/zlib-ng/minizip-ng
-
-   This program is distributed under the terms of the same license as zlib.
-   See the accompanying LICENSE file for the full text of the license.
-*/
-
-#include "mz.h"
-#include "mz_strm.h"
-
-/***************************************************************************/
-
-#define MZ_STREAM_FIND_SIZE (1024)
-
-/***************************************************************************/
-
-int32_t mz_stream_open(void *stream, const char *path, int32_t mode) {
-    mz_stream *strm = (mz_stream *)stream;
-    if (!strm || !strm->vtbl || !strm->vtbl->open)
-        return MZ_STREAM_ERROR;
-    return strm->vtbl->open(strm, path, mode);
-}
-
-int32_t mz_stream_is_open(void *stream) {
-    mz_stream *strm = (mz_stream *)stream;
-    if (!strm || !strm->vtbl || !strm->vtbl->is_open)
-        return MZ_STREAM_ERROR;
-    return strm->vtbl->is_open(strm);
-}
-
-int32_t mz_stream_read(void *stream, void *buf, int32_t size) {
-    mz_stream *strm = (mz_stream *)stream;
-    if (!strm || !strm->vtbl || !strm->vtbl->read)
-        return MZ_PARAM_ERROR;
-    if (mz_stream_is_open(stream) != MZ_OK)
-        return MZ_STREAM_ERROR;
-    return strm->vtbl->read(strm, buf, size);
-}
-
-static int32_t mz_stream_read_value(void *stream, uint64_t *value, int32_t len) {
-    uint8_t buf[8];
-    int32_t n = 0;
-    int32_t i = 0;
-
-    *value = 0;
-    if (mz_stream_read(stream, buf, len) == len) {
-        for (n = 0; n < len; n += 1, i += 8)
-            *value += ((uint64_t)buf[n]) << i;
-    } else if (mz_stream_error(stream))
-        return MZ_STREAM_ERROR;
-    else
-        return MZ_END_OF_STREAM;
-
-    return MZ_OK;
-}
-
+Void
+Ebd
+Delete
+Stop
+Void
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    void 
+    end
+    delete
+         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 int32_t mz_stream_read_uint8(void *stream, uint8_t *value) {
     int32_t err = MZ_OK;
     uint64_t value64 = 0;
