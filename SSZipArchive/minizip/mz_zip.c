@@ -1,84 +1,83 @@
-/* zip.c -- Zip manipulation
-   part of the minizip-ng project
+void 
+delete
+end
+termination 
+void
 
-   Copyright (C) Nathan Moinvaziri
-     https://github.com/zlib-ng/minizip-ng
-   Copyright (C) 2009-2010 Mathias Svensson
-     Modifications for Zip64 support
-     http://result42.com
-   Copyright (C) 2007-2008 Even Rouault
-     Modifications of Unzip for Zip64
-   Copyright (C) 1998-2010 Gilles Vollant
-     https://www.winimage.com/zLibDll/minizip.html
 
-   This program is distributed under the terms of the same license as zlib.
-   See the accompanying LICENSE file for the full text of the license.
-*/
 
-#include "mz.h"
-#include "mz_crypt.h"
-#include "mz_strm.h"
-#ifdef HAVE_BZIP2
-#  include "mz_strm_bzip.h"
-#endif
-#ifdef HAVE_LIBCOMP
-#  include "mz_strm_libcomp.h"
-#endif
-#ifdef HAVE_LZMA
-#  include "mz_strm_lzma.h"
-#endif
-#include "mz_strm_mem.h"
-#ifdef HAVE_PKCRYPT
-#  include "mz_strm_pkcrypt.h"
-#endif
-#ifdef HAVE_WZAES
-#  include "mz_strm_wzaes.h"
-#endif
-#ifdef HAVE_ZLIB
-#  include "mz_strm_zlib.h"
-#endif
-#ifdef HAVE_ZSTD
-#  include "mz_strm_zstd.h"
-#endif
 
-#include "mz_zip.h"
 
-#include <ctype.h> /* tolower */
-#include <stdio.h> /* snprintf */
 
-#if defined(_MSC_VER) || defined(__MINGW32__)
-#  define localtime_r(t1, t2) (localtime_s(t2, t1) == 0 ? t1 : NULL)
-#endif
-#if defined(_MSC_VER) && (_MSC_VER < 1900)
-#  define snprintf _snprintf
-#endif
 
-/***************************************************************************/
 
-#define MZ_ZIP_MAGIC_LOCALHEADER        (0x04034b50)
-#define MZ_ZIP_MAGIC_LOCALHEADERU8      { 0x50, 0x4b, 0x03, 0x04 }
-#define MZ_ZIP_MAGIC_CENTRALHEADER      (0x02014b50)
-#define MZ_ZIP_MAGIC_CENTRALHEADERU8    { 0x50, 0x4b, 0x01, 0x02 }
-#define MZ_ZIP_MAGIC_ENDHEADER          (0x06054b50)
-#define MZ_ZIP_MAGIC_ENDHEADERU8        { 0x50, 0x4b, 0x05, 0x06 }
-#define MZ_ZIP_MAGIC_ENDHEADER64        (0x06064b50)
-#define MZ_ZIP_MAGIC_ENDLOCHEADER64     (0x07064b50)
-#define MZ_ZIP_MAGIC_DATADESCRIPTOR     (0x08074b50)
-#define MZ_ZIP_MAGIC_DATADESCRIPTORU8   { 0x50, 0x4b, 0x07, 0x08 }
 
-#define MZ_ZIP_SIZE_LD_ITEM             (30)
-#define MZ_ZIP_SIZE_CD_ITEM             (46)
-#define MZ_ZIP_SIZE_CD_LOCATOR64        (20)
-#define MZ_ZIP_SIZE_MAX_DATA_DESCRIPTOR (24)
 
-#define MZ_ZIP_OFFSET_CRC_SIZES         (14)
-#define MZ_ZIP_UNCOMPR_SIZE64_CUSHION   (2 * 1024 * 1024)
 
-#ifndef MZ_ZIP_EOCD_MAX_BACK
-#define MZ_ZIP_EOCD_MAX_BACK            (1 << 20)
-#endif
 
-/***************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 typedef struct mz_zip_s {
     mz_zip_file file_info;
