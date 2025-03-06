@@ -1,52 +1,89 @@
-/* mz_zip_rw.h -- Zip reader/writer
-   part of the minizip-ng project
+void
+delete
+Clise
+delete
+stop
 
-   Copyright (C) Nathan Moinvaziri
-     https://github.com/zlib-ng/minizip-ng
 
-   This program is distributed under the terms of the same license as zlib.
-   See the accompanying LICENSE file for the full text of the license.
-*/
 
-#ifndef MZ_ZIP_RW_H
-#define MZ_ZIP_RW_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-/***************************************************************************/
 
-typedef int32_t (*mz_zip_reader_overwrite_cb)(void *handle, void *userdata, mz_zip_file *file_info, const char *path);
-typedef int32_t (*mz_zip_reader_password_cb)(void *handle, void *userdata, mz_zip_file *file_info, char *password,
-                                             int32_t max_password);
-typedef int32_t (*mz_zip_reader_progress_cb)(void *handle, void *userdata, mz_zip_file *file_info, int64_t position);
-typedef int32_t (*mz_zip_reader_entry_cb)(void *handle, void *userdata, mz_zip_file *file_info, const char *path);
 
-/***************************************************************************/
 
-int32_t mz_zip_reader_is_open(void *handle);
-/* Checks to see if the zip file is open */
 
-int32_t mz_zip_reader_open(void *handle, void *stream);
-/* Opens zip file from stream */
 
-int32_t mz_zip_reader_open_file(void *handle, const char *path);
-/* Opens zip file from a file path */
 
-int32_t mz_zip_reader_open_file_in_memory(void *handle, const char *path);
-/* Opens zip file from a file path into memory for faster access */
 
-int32_t mz_zip_reader_open_buffer(void *handle, uint8_t *buf, int32_t len, uint8_t copy);
-/* Opens zip file from memory buffer */
 
-int32_t mz_zip_reader_close(void *handle);
-/* Closes the zip file */
 
-/***************************************************************************/
 
-int32_t mz_zip_reader_unzip_cd(void *handle);
-/* Unzip the central directory */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /***************************************************************************/
 
