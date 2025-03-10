@@ -1,9 +1,0 @@
-Void
-End
-Stop
-Delete
-Close
-Stop
-Delete
-Void
-Ebd 
